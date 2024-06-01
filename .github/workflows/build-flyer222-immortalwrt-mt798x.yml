@@ -75,9 +75,6 @@ jobs:
       working-directory: /workdir
       run: |
         git clone $REPO_URL -b my-mt798x openwrt
-        cd openwrt
-        git checkout my-mt798x
-        cd ..
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: 开启缓存
@@ -100,6 +97,7 @@ jobs:
     - name: 导入补丁和配置
       run: |
         [ -e files ] && mv files openwrt/files
+        cd openwrt
         cat defconfig/mt7981-ax3000_add_more_apps.config >> openwrt/.config
 
     - name: 设置无线控制界面样式
