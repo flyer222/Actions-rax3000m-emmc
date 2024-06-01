@@ -97,8 +97,7 @@ jobs:
     - name: 导入补丁和配置
       run: |
         [ -e files ] && mv files openwrt/files
-        cd openwrt
-        cat defconfig/mt7981-ax3000_add_more_apps.config >> openwrt/.config
+        cat openwrt/defconfig/mt7981-ax3000_add_more_apps.config >> openwrt/.config
 
     - name: 设置无线控制界面样式
       if: env.USE_MTWIFI_CFG == 'true'
