@@ -75,6 +75,7 @@ jobs:
       working-directory: /workdir
       run: |
         git clone $REPO_URL -b my-mt798x openwrt
+        git checkout my-mt798x 
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: 开启缓存
